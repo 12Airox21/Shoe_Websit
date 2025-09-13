@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Boldonse&family=Iceland&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(
+        90deg,
+        rgba(69, 69, 69, 1) 0%,
+        rgba(50, 50, 50, 1) 50%,
+        rgba(30, 30, 30, 1) 100%
+      );
+}
+
+h2{
+    font-family: "Iceland", sans-serif;
+    font-size: 7.5vw;
+    text-align:justify;
+    margin-top: 35%;
+    margin-left: 10%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color :white;
+}
+
+/* Navigation Bar Styles */
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    position: fixed;
+    width : 100vw;
+    height: 6vh;
+    z-index: 100;
+    background-color: rgb(23, 23, 23);
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    gap: 4vw; 
+    padding-right: 5vw;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+    background: linear-gradient(90deg, rgba(194,178,149,255) 0%, rgba(146,112,84,255) 100%);
+    transition: width 0.3s;
+} 
+
+/* Landpage section */
+
+#Home{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.landpage{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+.heading{
+    height: 100vh;
+    width: 50%;
+}
+
+.heading h1{
+    font-family: "Iceland", sans-serif;
+    font-size: 15vw;
+    text-align:left;
+    margin-top: 35%;
+    margin-left: 10%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color :white;
+}
+
+.heading p{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    text-align:justify;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 0;
+    margin-top: 0;
+    color: rgb(157, 157, 157);
+}
+
+.bgimg{
+    height: 100%;
+    width: 50%;
+    transform: scale(2);
+    overflow: visible;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    /* Add will-change for better performance */
+    will-change: transform;
+}
+
+/* product section */
+#product{
+    width:100vw;
+    height:max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+.divider{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.pdiv{
+    justify-content: center;
+    height: 100vh; /* Give it height */
+    margin-bottom: 50vh;
+    width : 50%;
+    top:5%
+}
+
+.pdiv h2{
+    white-space: nowrap;
+    position: relative;        
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-top: 10%;
+    /* Add will-change for better performance */
+    will-change: transform, opacity;
+}
+
+.pdiv h2::after{
+    content: '';
+    width:100%;
+    height: 7px;
+    background: linear-gradient(90deg, rgba(194,178,149,255) 0%, rgba(146,112,84,255) 100%);
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
+
+/*demo img*/
+.bgimg2{
+    height: 100%;
+    width: 50%;
+    transform: scale(2);
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    display: none;
+}
+#pdctpg{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    text-align:justify;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 0;
+    margin-top: 20%;
+    color: rgb(157, 157, 157);
+}
+
+/* Card Section */
+
+.crd_sec{
+    width: 100%;
+    min-height: 92vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 2vw;
+    padding-top: 0;
+    margin-top: 0;
+    box-sizing: border-box;
+    overflow: visible;
+    
+}
+.titl_card{
+    display: flex;
+    box-sizing: border-box;
+    text-align: center;
+    width: auto;
+    height: 10vh;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: rgba(219,206,176,255);
+    border-radius: 1rem;
+}
+.titl_card h3{
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-size: 3vw;
+    text-align: center;
+    margin: auto;
+    color :rgb(56,69,63);
+    
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-between;
+    width:90%;
+    left :5%;
+    gap: 2vw;
+    overflow: visible;
+}
+.card1, .card2, .card3 {
+    flex: 1 1 20%;          /* 3 cards in a row on desktop */
+    max-width: 25%;
+    min-width: 250px;       /* ensures it doesn't shrink too tiny */
+    height: 70vh;           /* let height grow with content */
+    background-color: rgba(195,178,151,255);
+    border-radius: 1rem;
+    
+}
+.crd{
+    flex-direction: column;
+    position: relative;
+}
+.crd:hover{
+    transform: scale(1.05) translateY(-10px);
+    background-color: rgb(120, 102, 73);
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    
+}
+.crd img{
+    width: 90%;
+    height: 40%;
+    align-self: center;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 1rem;
+}
+.crd h4{
+    font-family: "Iceland", sans-serif;
+    font-size: 2.5vw;
+    text-align: center;
+    margin-top: 5%;
+    color :rgb(43, 46, 45);
+    transition: color 0.5s ease;
+}
+.crd p{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    color: rgb(7, 7, 7);
+}
+.feutures{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width:100%;
+    
+}
+.feutures ul{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 2vw;
+    margin-top: 10%;
+    margin-left: 5%;;
+    margin-bottom: 5%;
+    
+}
+.feutures ul li{
+    list-style: none;
+    font-family: "Bebas Neue", sans-serif;
+    text-align: center;
+    color: rgb(43, 46, 45);
+    background-color: rgba(219,206,176,255);
+    padding: 0.5vw 1vw;
+    border-radius: 1rem;
+}
+.price{
+    font-family: "Anton", sans-serif;
+    font-size: 2vw;
+    text-align: left;
+    margin-top: 0%;
+    margin-left: 5%;
+    color :rgb(43, 46, 45);
+}
+
+.crd:hover h4{
+    color:aliceblue;
+}
+
+
+/* About Section */
+#about{
+    width:100vw;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    background-image: rgb(23, 23, 23);
+}
+#about h2{
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.Abtdiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    position: relative;
+    margin-top: 0;
+    gap: 2vw;
+}
+
+.abt1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+
+}
+.abt1 p{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    text-align:justify;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 0%;
+    margin-top: 0%;
+    margin-left: 50%;
+    color: rgb(157, 157, 157);
+    height: 80%;
+    width: 50%;
+    
+}
+.aboutvd{
+    height: 80%;
+    width: 50%;
+    margin-top: 5%;
+    overflow: hidden;
+    position: absolute;
+    left: 5%;
+    top: 0%;
+    z-index: 4;
+    /* Add will-change for better performance */
+   /* will-change: transform;*/
+}
+.aboutvd video{
+    object-fit: cover;
+}
+
+/* about 2  */
+.abt2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 260vh;
+    overflow: visible;
+   
+    
+
+}
+.abt2 h4{
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-size: 5vw;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: -5%;
+    margin-bottom: 2%;
+    color :rgb(234, 234, 234);
+    height: 5%;
+    
+
+    
+}
+.split_shoe{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 0%;
+    overflow: visible;
+    margin-bottom: 0%;
+}
+.splitdef{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 5%;
+}
+.splitimg{
+    width:50%;
+    height: 100%;
+    overflow: visible;
+}
+.splitimg svg{
+    object-fit: contain;
+    transform: scale(1.8) translateY(5%);
+    position: absolute;
+    
+}
+.shoe_parts{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    justify-content: start;
+    position: relative;
+    
+
+}
+.txt_prt{
+    display: flex;
+    flex-direction: column;
+     /* ✅ handles spacing for all children */
+}
+.txt_prt h5{
+    font-family: "Iceland", sans-serif;
+    font-weight: 400;
+    font-size: 3vw;
+    color :rgb(234, 234, 234);
+}
+.txt_prt p{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5vw;
+    color: rgb(157, 157, 157);
+    height: 80%;
+    width: 90%;
+}
+.txt_prt h5,
+.txt_prt p {
+    margin-left: 0; /* ✅ remove individual offsets */
+    text-align: left; /* more consistent alignment */
+}
+#contact{
+    width: 100%;
+    height: 80vh;
+    background-color: aquamarine;
+}
