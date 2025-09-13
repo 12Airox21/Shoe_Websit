@@ -1,39 +1,4 @@
 
-if (window.innerWidth < 1024) {
-  document.body.innerHTML = `
-    <style>
-      body { 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        height: 100vh; 
-        margin: 0; 
-        font-family: Arial, sans-serif; 
-        text-align: center; 
-        background: linear-gradient(
-        90deg,
-        rgba(69, 69, 69, 1) 0%,
-        rgba(50, 50, 50, 1) 50%,
-        rgba(30, 30, 30, 1) 100%
-      ); 
-        color: #fff; 
-      }
-      h1 {
-        font-size: 3rem;
-      }
-      h2 {
-        text-align: center;
-        color:#fff;
-      }
-    </style>
-    <div>
-      <h1>🚫</h1>
-      <h2>This website is only available on desktop devices.</h2>
-      <p>Please visit again from a larger screen.</p>
-    </div>
-  `;
-  throw new Error("Blocked mobile view");
-}
 // variable declaration
 const card_detail = [
   {
@@ -142,7 +107,8 @@ function initializeScrollAnimations() {
         AutoShowanimationForAll(".abt2",[".abt2 h4"],0.9);
         AutoShowanimationForAll(".txt_prt",[".txt_prt h5",".txt_prt p"],0.9);
         setInterval(VideoAnimation, 7000);
-        
+        AutoShowanimationForAll("#contact",[".contact-container h2"]);
+        AutoShowanimationForAll(".contact-content",[".contact-info",".contact-form"]);
         
         
 
@@ -359,7 +325,7 @@ function cardanimate(){
 // reusable auto animation function 
 
 function AutoShowanimationForAll(triggerElement , elmts, vscale = 0.3){
-    card = gsap.timeline({
+    let timeline = gsap.timeline({
         scrollTrigger: {
             trigger: triggerElement,
             start: "top 95%",  
@@ -367,7 +333,7 @@ function AutoShowanimationForAll(triggerElement , elmts, vscale = 0.3){
             scrub: 1,
         }
     })
-    card.from(elmts,{
+    timeline.from(elmts,{
         opacity: 0,
         y: 50,
         scale: vscale,
@@ -427,6 +393,42 @@ function VideoAnimation(){
   });
 }
 
+// Contact form handling
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                form.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    }
+});
+
 function loadSvg3(){
     fetch('assets/shoe2.svg')
     .then(response => response.text())
@@ -445,24 +447,22 @@ function splitshoeAnimation(){
     const up = document.getElementById("bdim1");
     const mid = document.getElementById("bdim2");
     const low = document.getElementById("bdim3");
-    console.log(up,mid,low);
     if (!up || !mid || !low) {
-        console.warn("SVG parts not found");
         return;
     }
 
     const tl1 = gsap.timeline({
         scrollTrigger: {
             trigger: ".abt2",
-            start: "top 20%",   // when abt2 hits the top
-            end: "+=1500",      // control distance (longer = slower)
+            start: "top 20%",
+            end: "+=1500",
             scrub:1,
-            pin: true,          // ✅ keeps .abt2 frozen
+            pin: true,
             anticipatePin: 1
         }
     });
     
-    tl1.to({}, { duration: 0.3 })  
+    tl1.to({}, { duration: 0.3 })
        .to(up, { y: -100, opacity: 1 })
        .to(low, { y: 200, opacity: 1 });
 }
